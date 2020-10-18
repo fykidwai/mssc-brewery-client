@@ -29,4 +29,9 @@ class BreweryClientTest {
         System.out.println(location);
     }
 
+    @Test
+    final void testUpdateBeer() {
+        breweryClient.updateBeer(UUID.randomUUID(), BeerDto.builder().id(UUID.randomUUID()).build());
+    }
+
 }
