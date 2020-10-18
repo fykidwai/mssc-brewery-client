@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import guru.springframework.msscbreweryclient.web.model.BeerDto;
+
 @SpringBootTest
 class BreweryClientTest {
 
@@ -18,6 +20,13 @@ class BreweryClientTest {
     final void testGetBeerById() {
         final var beerDto = breweryClient.getBeerById(UUID.randomUUID());
         assertThat(beerDto).isNotNull();
+    }
+
+    @Test
+    final void testCreateNewBeer() {
+        final var location = breweryClient.createNewBeer(BeerDto.builder().id(UUID.randomUUID()).build());
+        assertThat(location).isNotNull();
+        System.out.println(location);
     }
 
 }

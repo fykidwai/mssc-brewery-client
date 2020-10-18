@@ -1,5 +1,6 @@
 package guru.springframework.msscbreweryclient.web.client;
 
+import java.net.URI;
 import java.util.UUID;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -23,6 +24,10 @@ public class BreweryClient {
 
     public BeerDto getBeerById(final UUID beerId) {
         return restTemplate.getForObject(apihost + BEER_PATH_V1 + beerId, BeerDto.class);
+    }
+
+    public URI createNewBeer(final BeerDto beerDto) {
+        return restTemplate.postForLocation(apihost + BEER_PATH_V1, beerDto);
     }
 
     public void setApihost(final String apihost) {
