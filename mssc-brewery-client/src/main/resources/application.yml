@@ -1,5 +1,11 @@
 sfg:
-  brewery:
-    apihost: http://localhost:9090
-    
-logging:  level:    org.apache.http: debug
+   brewery:
+      apihost: http://localhost:9090
+   client:
+      maxtotalconnections: 100
+      defaultmaxtotalconnections: 20
+      sockettimeout: 3000
+      connectionrequesttimeout: 3000
+logging:
+   level:
+      org.apache.http: debug
